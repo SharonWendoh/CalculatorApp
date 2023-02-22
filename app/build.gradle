@@ -63,4 +63,7 @@ dependencies {
 
     // Compose dependencies
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
+    testImplementation "io.mockk:mockk:1.12.4"
+    debugImplementation "io.mockk:mockk-android:1.12.4"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
 }
