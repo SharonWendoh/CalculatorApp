@@ -21,8 +21,8 @@ class   CalculatorViewModel: ViewModel() {
         }
     }
 
-
-    private fun performDeletion() {
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    fun performDeletion() {
         when{
             state.number2.isNotBlank() ->state = state.copy(
                 number2 = state.number2.dropLast(1)
@@ -55,13 +55,15 @@ class   CalculatorViewModel: ViewModel() {
             }
         }
 
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     fun enterOperation(operation: CalculatorOperation) {
         if(state.number1.isNotBlank()){
             state = state.copy(operation = operation)
         }
     }
 
-    private fun enterDecimal() {
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    fun enterDecimal() {
         if (state.operation == null && !state.number1.contains(".") && state.number1.isNotBlank()
         ) {
             state = state.copy(
@@ -72,12 +74,13 @@ class   CalculatorViewModel: ViewModel() {
         if(!state.number2.contains(".") && state.number2.isNotBlank()
         ) {
             state = state.copy(
-                number1 = state.number2 + "."
+                number2 = state.number2 + "."
             )
         }
     }
 
 
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     fun enterNumber(number: Int) {
         if(state.operation == null){
             if(state.number1.length >= MAX_NUM_LENGTH){
