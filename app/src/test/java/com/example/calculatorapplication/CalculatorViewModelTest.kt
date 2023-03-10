@@ -141,7 +141,7 @@ class CalculatorViewModelTest {
         Assert.assertEquals("5.",calculatorViewModel.state.number2)
     }
 
-
+//
 /*
 //    @Test
 //    fun checkOperationIsEnteredCorrectly(){
